@@ -38,7 +38,7 @@ docker run -p 8080:8080 -e "JAVA_OPTS=-Dspring.profiles.active=REPLAY" hypertest
 ```
 docker run -d --add-host host.docker.internal:host-gateway -p 8080:8080 -e "JAVA_OPTS=-Dspring.profiles.active=RECORD -Dspring.datasource.url=jdbc:mysql://172.17.0.1:3306/instrumentation -Dspring.datasource.username=root -Dspring.datasource.password=****** -Dexternal.api=http://worldtimeapi.org/api/timezone/Asia/Kolkata" hypertest
 ```
-* Sample Curl Request to test
+* Sample curl request to test
 ```
 curl --location 'http://localhost:8080/api/createNewPost' \
 --header 'Content-Type: application/json' \
