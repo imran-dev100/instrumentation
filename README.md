@@ -28,7 +28,7 @@ docker run -p 8080:8080 -e "JAVA_OPTS=-Dspring.profiles.active=REPLAY" hypertest
 ```
 * For REPLAY mode, you can run the command:
 ```
-docker run -d --add-host host.docker.internal:host-gateway -p 8080:8080 -e "JAVA_OPTS=-Dspring.profiles.active=RECORD -Dspring.datasource.url=jdbc:mysql://172.17.0.1:3306/instrumentation -Dspring.datasource.username=root -Dspring.datasource.password=root -Dexternal.api=http://worldtimeapi.org/api/timezone/Asia/Kolkata" hypertest
+docker run -d --add-host host.docker.internal:host-gateway -p 8080:8080 -e "JAVA_OPTS=-Dspring.profiles.active=RECORD -Dspring.datasource.url=jdbc:mysql://172.17.0.1:3306/instrumentation -Dspring.datasource.username=root -Dspring.datasource.password=****** -Dexternal.api=http://worldtimeapi.org/api/timezone/Asia/Kolkata" hypertest
 ```
 
 
