@@ -22,7 +22,7 @@ This is a Spring Boot project created to run in 2 profiles. Either default or **
 ```
 git clone https://github.com/imran-dev100/instrumentation.git
 ```
-*Change the directory and move to the root directory of the project.
+* Change the directory and move to the root directory of the project.
 ```
 cd instrumentation
 ```
