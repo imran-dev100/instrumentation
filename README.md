@@ -1,4 +1,4 @@
-# instrumentation
+ # instrumentation
 
 <a name="readme-top"></a>
 [![MIT License][license-shield]][license-url]
@@ -38,7 +38,16 @@ docker run -p 8080:8080 -e "JAVA_OPTS=-Dspring.profiles.active=REPLAY" hypertest
 ```
 docker run -d --add-host host.docker.internal:host-gateway -p 8080:8080 -e "JAVA_OPTS=-Dspring.profiles.active=RECORD -Dspring.datasource.url=jdbc:mysql://172.17.0.1:3306/instrumentation -Dspring.datasource.username=root -Dspring.datasource.password=****** -Dexternal.api=http://worldtimeapi.org/api/timezone/Asia/Kolkata" hypertest
 ```
-> **_NOTE:_**  The values in REPLAY mode are hard coded as specified in the problem statement document link on the top of README.
+* Sample Curl Request to test
+```
+curl --location 'http://localhost:8080/api/createNewPost' \
+--header 'Content-Type: application/json' \
+--data '{
+    "post_name": "Karan Raina" ,
+    "post_contents":"Hyper Test"
+}'
+```
+> **_NOTE:_**  The values in REPLAY mode are hard-coded as specified in the problem statement document link on the top of README.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
