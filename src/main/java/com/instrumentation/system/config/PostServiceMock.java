@@ -31,7 +31,7 @@ public class PostServiceMock {
 	private String externalApi;
 
 	/**
-	 * @return mock of JpaRepository of Post class in REPLAY mode only
+	 * @return mock of JpaRepository for Post class in REPLAY mode only
 	 */
 	@Bean
 	@Primary
