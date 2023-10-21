@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.instrumentation.system.dto.PostResponse;
 import com.instrumentation.system.entity.Post;
 
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -30,6 +31,7 @@ public class PostServiceImpl implements PostService {
 	@Autowired
 	private JpaRepository<Post, Long> postRepository;
 
+	@Transactional
 	@Override
 	public PostResponse createNewPost(Post post) {
 		ResponseEntity<JsonNode> responseEntity = null;
