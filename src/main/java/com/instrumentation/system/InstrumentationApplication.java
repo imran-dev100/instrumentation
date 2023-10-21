@@ -12,7 +12,6 @@ public class InstrumentationApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(InstrumentationApplication.class, args);
 	}
-
 	/**
 	 * @return RestTemplate for NON-REPLAY profiles only
 	 */
