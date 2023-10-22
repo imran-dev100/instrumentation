@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: instrumentation
   datasource:
     url: jdbc:mysql://localhost:3306/instrumentation?autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
     username: root
@@ -12,10 +14,20 @@ spring:
     open-in-view: false
  
 logging:
+  pattern:
+    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
   level:
     org:
       hibernate:
         SQL: DEBUG
 
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+tracing:
+  url: http://localhost:4318/v1/traces
+
 external:
-  api: http://worldtimeapi.org/api/timezone/Asia/Kolkata
+  api: http://worldtimeapi.org/api/timezone/Asia/Kolkata 
