@@ -3,16 +3,20 @@ package com.instrumentation.system.assumptions.http;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
+
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -29,6 +33,7 @@ public class RestTemplateMock {
 	 */
 	@Bean
 	@Profile("REPLAY")
+	@Primary
 	RestTemplate mockRestTemplate() {
 		RestTemplate restTemplate = Mockito.mock(RestTemplate.class);
 		// Mocking external API

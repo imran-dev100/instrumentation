@@ -15,7 +15,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.instrumentation.system.dto.PostResponse;
 import com.instrumentation.system.entity.Post;
 
-import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -31,18 +30,18 @@ public class PostServiceImpl implements PostService {
 	@Autowired
 	private JpaRepository<Post, Long> postRepository;
 
-	@Transactional
+//	@Transactional
 	@Override
 	public PostResponse createNewPost(Post post) {
 		ResponseEntity<JsonNode> responseEntity = null;
 		try {
-			//Saving to database
+			// Saving to database
 			post = postRepository.save(post);
-			
-			//Calling an external HTTP API
+
+			// Calling an external HTTP API
 			responseEntity = restTemplate.getForEntity(externalApi, JsonNode.class);
-			
-			//Checking if status is 200 OK and response has body
+
+			// Checking if status is 200 OK and response has body
 			if (responseEntity.getStatusCode().equals(HttpStatus.OK) && responseEntity.hasBody())
 				return PostResponse.builder().dbRow(post).httpOutbound(responseEntity.getBody()).build();
 		} catch (DataAccessException de) {
