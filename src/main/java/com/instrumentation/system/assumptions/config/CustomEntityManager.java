@@ -20,7 +20,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.CriteriaUpdate;
 import jakarta.persistence.metamodel.Metamodel;
 
-//Enabling for REPLAY mode only
+
 @Profile("REPLAY")
 @Component
 public class CustomEntityManager implements EntityManager {
